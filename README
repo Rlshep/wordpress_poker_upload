@@ -1,0 +1,3 @@
+This is a custom application for personal use, others may use as an example.
+The application uses Ruby, Cucumber and page-object gem to upload a csv file
+to a Wordpress website. 
