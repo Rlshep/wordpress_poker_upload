@@ -6,10 +6,16 @@ class PokerSummaryFileHandler
     new_summary_name = ResultsTableHelper.new.get_summary_name_from_result_name latest_results
     new_summary_name = path + '/' + new_summary_name + '.csv'
     new_title = ResultsTableHelper.new.get_month_year_from_name(new_summary_name)
-
     new_summary_array = get_new_poker_summary_from_previous latest_summary
-    new_summary_array[0].push new_title
-    add_new_results_to_new_poker_summary new_summary_array, latest_results
+
+
+    if new_summary_array.nil? || new_summary_array.empty?
+      add_new_results_for_first_summary new_summary_array, latest_results
+    else
+      add_new_results_to_new_poker_summary new_summary_array, latest_results
+    end
+
+    new_summary_array[0] << new_title
     add_new_empty_columns new_summary_array
     add_summary_totals new_summary_array
     sort_summary_array new_summary_array
@@ -19,9 +25,26 @@ class PokerSummaryFileHandler
     new_summary_name
   end
 
+  def add_new_results_for_first_summary(summary_array, latest_results)
+    results_csv = CSV.parse(File.read(latest_results))
+    first_row = true
+
+    results_csv.each do |result_row|
+      if first_row
+        summary_array << ['Name']
+        first_row = false
+      else
+        summary_array << [result_row[1], result_row[2]]
+      end
+    end
+
+  end
+
   def get_new_poker_summary_from_previous(latest_summary)
-    #TODO: Handle no previous summary file
-    summary_csv = CSV.parse(File.read(latest_summary))
+    summary_csv = Array.new
+    if !latest_summary.nil?
+      summary_csv = CSV.parse(File.read(latest_summary))
+    end
 
     new_summary_full = Array.new
     original_summary_size = 0
@@ -80,7 +103,7 @@ class PokerSummaryFileHandler
   def add_new_summary_row(summary_array, original_summary_row_size, result_row)
     new_summary_row = [result_row[1]] # Nickname
 
-    for i in 1..original_summary_row_size-2 # One for name, one for Total
+    for i in 0..original_summary_row_size-2 # One for name, one for Total
       new_summary_row.push ''
     end
 
