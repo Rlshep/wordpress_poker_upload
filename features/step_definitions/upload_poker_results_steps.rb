@@ -82,11 +82,11 @@ And(/^I check Results tag$/) do
   on_page(AddNewPostPage).resultstag
 end
 
-And(/^I add latest result to summary file$/) do
+When(/^I add latest result to summary file for "([^"]*)"$/) do |title|
   latest_summary_file = file_helper.latest_file_name $config['local_path'], 'Summary*.csv'
   latest_result_file = file_helper.latest_file_name $config['local_path'], 'Results*.csv'
 
-  @latest_summary_file_name = PokerSummaryFileHandler.new.create_new_poker_summary_file $config['local_path'], latest_summary_file, latest_result_file
+  @latest_summary_file_name = PokerSummaryFileHandler.new.create_new_poker_summary_file $config['local_path'], latest_summary_file, latest_result_file, title
 end
 
 When(/^I type in the latest summary table name$/) do
@@ -127,3 +127,4 @@ end
 Then(/^I should see page updated$/) do
   on_page(AddNewPostPage).message.should include 'Page updated.'
 end
+

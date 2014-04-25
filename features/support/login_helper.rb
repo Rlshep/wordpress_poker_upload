@@ -3,8 +3,8 @@ require 'encryptor'
 require 'base64'
 
 class LoginHelper
-  @@secret_key = Base64.decode64('secret')
-  @@iv = Base64.decode64('iv')
+  @@secret_key = Base64.decode64('RE6coUpCXqA9yI8mLpGNjguFrxycJQYwlbbRCPkkHhVBQmUrH1')
+  @@iv = Base64.decode64('ehHjPsOS4QTDFY1qlH2RsgsrdScisTJj3MPsFUC2')
   @@salt = Time.now.to_i.to_s
 
   def encrypt (unencrypted_value)

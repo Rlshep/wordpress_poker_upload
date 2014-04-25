@@ -23,7 +23,7 @@ Then I should see Post published
 @poker_upload_summary
 Scenario: Upload a new summary file
   Given I am on the Dead Money Poker Login Page
-When I add latest result to summary file
+When I add latest result to summary file for "Season 7"
 And I Login
 And I Click Tables
 And I type in the latest summary table name

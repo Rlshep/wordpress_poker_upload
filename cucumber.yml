@@ -1,1 +1,2 @@
-default: --no-source --color --format pretty
+default: --no-source --color --format pretty ~@more_beer_belgium_trip
+contests: --no-source --color --format pretty --tags @more_beer_belgium_trip

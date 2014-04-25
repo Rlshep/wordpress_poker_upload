@@ -2,10 +2,9 @@ require 'csv'
 
 class PokerSummaryFileHandler
 
-  def create_new_poker_summary_file(path, latest_summary, latest_results)
+  def create_new_poker_summary_file(path, latest_summary, latest_results, title)
     new_summary_name = ResultsTableHelper.new.get_summary_name_from_result_name latest_results
     new_summary_name = path + '/' + new_summary_name + '.csv'
-    new_title = ResultsTableHelper.new.get_month_year_from_name(new_summary_name)
     new_summary_array = get_new_poker_summary_from_previous latest_summary
 
 
@@ -15,7 +14,7 @@ class PokerSummaryFileHandler
       add_new_results_to_new_poker_summary new_summary_array, latest_results
     end
 
-    new_summary_array[0] << new_title
+    new_summary_array[0] << title
     add_new_empty_columns new_summary_array
     add_summary_totals new_summary_array
     sort_summary_array new_summary_array
