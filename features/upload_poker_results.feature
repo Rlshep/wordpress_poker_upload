@@ -23,10 +23,10 @@ Then I should see Post published
 @poker_upload_summary
 Scenario: Upload a new summary file
   Given I am on the Dead Money Poker Login Page
-When I add latest result to summary file for "Season 7"
+When I add latest result to summary file
 And I Login
 And I Click Tables
-And I type in the latest summary table name
+And I type in the summary table name "Season 7 Points Summary"
 And I choose the latest summary csv file
 And I change delimiter to ","
 And I click the Manage Table Import Table button
