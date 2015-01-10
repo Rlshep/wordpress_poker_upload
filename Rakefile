@@ -9,9 +9,6 @@ begin
       t.profile = 'default'
     end
 
-    Cucumber::Rake::Task.new(:contests) do |t|
-      t.profile = 'contests'
-    end
   end
 
   task :default => 'features:default'
