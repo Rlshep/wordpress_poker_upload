@@ -26,7 +26,7 @@ Scenario: Upload a new summary file
 When I add latest result to summary file
 And I Login
 And I Click Tables
-And I type in the summary table name "Season 7 Points Summary"
+And I type in the summary table name "Season 8 Points Summary"
 And I choose the latest summary csv file
 And I change delimiter to ","
 And I click the Manage Table Import Table button

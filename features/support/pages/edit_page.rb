@@ -1,8 +1,8 @@
 class EditPage
   include PageObject
 
-  # Season 7 summary page
-  page_url 'http://deadmoneypoker.org/wp-admin/page.php?action=edit&post=572'
+  # Season 8 summary page
+  page_url 'http://deadmoneypoker.org/wp-admin/page.php?action=edit&post=673'
 
   text_field(:posttitle, :name => 'post_title')
   button(:update, :id => 'publish')
