@@ -213,3 +213,17 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#############
+## RubyMine
+#############
+.idea/*
+PokerUpload.iml
+.project
+
+#############
+## Other
+#############
+*belgium*
+*more_beer*
+*abita*
