@@ -218,8 +218,9 @@ pip-log.txt
 ## RubyMine
 #############
 .idea/*
-PokerUpload.iml
-.project
+.idea/.rakeTasks
+.idea/PokerUpload.iml
+.idea/workspace.xml
 
 #############
 ## Other
